@@ -1,5 +1,8 @@
 <script>
-    import ColorPicker from '../src/ColorPicker'
+    import Colorwell from '../src/Colorwell'
+    let myColor 
 </script>
 
-<ColorPicker/>
+<h1>{myColor}</h1>
+
+<Colorwell bind:colorGlob={myColor} />
