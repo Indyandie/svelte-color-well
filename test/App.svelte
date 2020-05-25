@@ -1,6 +1,6 @@
 <script>
     import Colorwell from '../src/Colorwell'
-    let myColor 
+    let myColor
 </script>
 
 <h1>{myColor}</h1>

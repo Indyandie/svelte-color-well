@@ -27,8 +27,6 @@
 
 </script>
 
-<h1>{colorGlob}</h1>
-
 <div 
     on:load={updateColor}
     class={`color-selector ${colorContrast ? 'black': '' }`} 
