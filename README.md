@@ -1,6 +1,7 @@
 # Svelte Colorwell
 
-A color picker svelte component.
+A color picker.
+
 
 ## Install it
 
@@ -13,13 +14,13 @@ npm i svelte-color-well
 
 import it to your component/app
 ```js
-    import Colorwell from 'svelte-color-well'
+import Colorwell from 'svelte-color-well'
 ```
 
 then use it 
 
 ```html
-    <Colorwell/>
+<Colorwell/>
 ```
 
 
