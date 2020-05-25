@@ -34,5 +34,9 @@
     "svelte-awesome": "^2.3.0"
   },
   "author": "Andy Contreras",
-  "license": "ISC"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Indyandie/svelte-color-well"
+  },
+  "license": "MIT"
 }
