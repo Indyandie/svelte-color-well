@@ -10,17 +10,24 @@ npm i svelte-color-well
 ```
 
 
-## Use it
-
-import it to your component/app
-```js
-import Colorwell from 'svelte-color-well'
-```
-
-then use it 
+## Using it
 
 ```html
-<Colorwell/>
+<script>
+    // import it to your component/app
+    import Colorwell from '../src/Colorwell'
+
+    // your color var
+    let myColor
+</script>
+
+
+<!-- use the component and bind your color the prop -->
+<Colorwell bind:colorGlob={myColor} />
+
+<!-- see it in action -->
+<h1>{myColor}</h1>
+
 ```
 
 
