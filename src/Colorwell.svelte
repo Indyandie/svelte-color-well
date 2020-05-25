@@ -1,11 +1,14 @@
 <script>
 
+    import { onMount } from 'svelte';
     import chrm from 'chroma-js'
     import RangeInput from './RangeInput.svelte'
 
     // Font Awesome
     import Icon from 'svelte-awesome';
     import { tint } from 'svelte-awesome/icons';
+
+    export let colorGlob = color
 
     $: hue = Math.floor(Math.random() * 360)
     $: saturation = Math.floor(Math.random() * 100)
@@ -14,10 +17,20 @@
     $: colorContrast = chrm.contrast('white', color) < 4.5 
     $: showModal = true
 
+    function updateColor() {
+        colorGlob = color
+    }
+
+    onMount(async () => {
+		colorGlob = color
+	});
 
 </script>
 
+<h1>{colorGlob}</h1>
+
 <div 
+    on:load={updateColor}
     class={`color-selector ${colorContrast ? 'black': '' }`} 
     style={`background: ${color}`} 
     on:click={e => showModal = false }
@@ -28,9 +41,13 @@
 <div class={`modal ${showModal ? 'hidden': ''}`} >
 
     <div 
+        
         class="colorPal" 
         style={`background: ${color}`}
-        on:click="{e => showModal = true }"
+        on:click="{e => {
+            updateColor()
+            showModal = true
+        }}"
     >
         <strong class:black={colorContrast} >{color}</strong>
     </div>
