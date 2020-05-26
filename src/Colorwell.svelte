@@ -63,12 +63,13 @@
     style={`background: ${color}`} 
     on:click={e => {
         updateColorHSV()
-        showModal = false
+        showModal = !showModal
     }}
 >
     <Icon data={tint} scale="2" />
 </div>
 
+{#if !showModal}
 <div class={`colorwell-modal ${showModal ? 'hidden': ''}`} >
 
     <div 
@@ -88,6 +89,8 @@
     <RangeInput on:change={updateColor} bind:value={value} label="Value" MAX={100}/>
     
 </div>
+{/if}
+
 
 
 <style>
