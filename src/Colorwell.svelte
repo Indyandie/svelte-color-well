@@ -6,7 +6,7 @@
 
     // Font Awesome
     import Icon from 'svelte-awesome';
-    import { tint } from 'svelte-awesome/icons';
+    import { eyedropper } from 'svelte-awesome/icons';
 
     export let colorGlob = chrm.random()
     $: showModal = true
@@ -70,7 +70,7 @@
         showModal = !showModal
     }}
 >
-    <Icon data={tint} scale="2" />
+    <Icon data={eyedropper} scale="1.5" />
 </div>
 
 {#if !showModal}
