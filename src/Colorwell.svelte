@@ -1,6 +1,6 @@
 <script>
 
-    import { onMount } from 'svelte';
+    import { onMount, beforeUpdate } from 'svelte';
     import chrm from 'chroma-js'
     import RangeInput from './RangeInput.svelte'
 
@@ -9,34 +9,67 @@
     import { tint } from 'svelte-awesome/icons';
 
     export let colorGlob = color
-
-    $: hue = Math.floor(Math.random() * 360)
-    $: saturation = Math.floor(Math.random() * 100)
-    $: value = Math.floor(Math.random() * 100)
-    $: color = chrm.hsv(hue, (saturation * 0.01), (value * 0.01)).hex().toUpperCase()
-    $: colorContrast = chrm.contrast('white', color) < 4.5 
     $: showModal = true
 
+    $: hue = 0
+    $: saturation = 100
+    $: value = 10
+
+    $: color = colorGlob
+    
+    $: colorContrast = chrm.contrast('white', color) < 4.5 
+
     function updateColor() {
+        color = chrm.hsv(hue, (saturation * 0.01), (value * 0.01)).hex().toUpperCase()
+        updateColorGlob()
+    }
+
+    function updateColorGlob() {
         colorGlob = color
     }
 
+    function updateColorHSV() {
+        let colorHSV = chrm(color).hsv()
+        hue = Math.floor(colorHSV[0])
+        saturation = Math.floor(colorHSV[1]*100)
+        value = Math.floor(colorHSV[2]*100)
+    }
+
+    function updateColorToGlob() {
+        color = colorGlob
+        updateColorHSV()
+    }
+
+
     onMount(async () => {
-		colorGlob = color
-	});
+        if (!colorGlob) {
+            updateColorGlob()
+        } else {
+            updateColorToGlob()
+        }
+    });
+    
+    beforeUpdate( async () => {
+    
+        if (colorGlob !== color) {
+            updateColorToGlob()
+        } 
+    })
 
 </script>
 
 <div 
-    on:load={updateColor}
     class={`color-selector ${colorContrast ? 'black': '' }`} 
     style={`background: ${color}`} 
-    on:click={e => showModal = false }
+    on:click={e => {
+        updateColorHSV()
+        showModal = false
+    }}
 >
     <Icon data={tint} scale="2" />
 </div>
 
-<div class={`modal ${showModal ? 'hidden': ''}`} >
+<div class={`colorwell-modal ${showModal ? 'hidden': ''}`} >
 
     <div 
         
@@ -50,9 +83,9 @@
         <strong class:black={colorContrast} >{color}</strong>
     </div>
 
-    <RangeInput bind:value={hue} label="Hue" MAX={360}/>
-    <RangeInput bind:value={saturation} label="Saturation" MAX={100}/>
-    <RangeInput bind:value={value} label="Value" MAX={100}/>
+    <RangeInput on:change={updateColor} bind:value={hue} label="Hue" MAX={360}/>
+    <RangeInput on:change={updateColor} bind:value={saturation} label="Saturation" MAX={100}/>
+    <RangeInput on:change={updateColor} bind:value={value} label="Value" MAX={100}/>
     
 </div>
 
@@ -70,8 +103,9 @@
         cursor: pointer;
     }
 
-    .modal {
+    .colorwell-modal {
         width: 320px;
+        height: auto;
         padding: 24px;
         border-radius: 16px;
         display: flex;
