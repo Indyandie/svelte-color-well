@@ -63,7 +63,7 @@
 </script>
 
 <div 
-    class={`color-selector ${colorContrast ? 'black': '' }`} 
+    class={`colorwell-selector ${colorContrast ? 'black': '' }`} 
     style={`background: ${color}`} 
     on:click={e => {
         updateColorHSV()
@@ -99,14 +99,16 @@
 
 <style>
 
-    .color-selector {
+    .colorwell-selector {
         width: 48px;
         height: 48px;
         border-radius: 100%;
+        box-sizing: border-box;
         display: flex;
         justify-content: center;
         align-items: center;
         color: white;
+        border: 2px solid #333;
         cursor: pointer;
     }
 
