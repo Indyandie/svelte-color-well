@@ -15,7 +15,7 @@ npm i svelte-color-well
 ```html
 <script>
     // import it to your component/app
-    import Colorwell from '../src/Colorwell'
+    import Colorwell from 'svelte-color-well'
 
     // your color var
     let myColor
