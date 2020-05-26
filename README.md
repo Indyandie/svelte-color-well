@@ -21,8 +21,10 @@ npm i svelte-color-well
     let myColor
 </script>
 
+<!-- use the component initializes with a random color -->
+<Colorwell/>
 
-<!-- use the component and bind your color the prop -->
+<!-- use the component and initialize color -->
 <Colorwell bind:colorGlob={myColor} />
 
 <!-- see it in action -->
