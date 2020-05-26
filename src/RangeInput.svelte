@@ -1,6 +1,7 @@
 <script>
     export let value = 30
     export let MAX = 100
+    export let MIN = 0
     export let label = null
 </script>
 
@@ -9,7 +10,7 @@
         <strong>{label}</strong>
     {/if}
     {value}</label>
-<input on:change id="range" type="range" bind:value={value} max={MAX}>
+<input on:change id="range" type="range" bind:value={value} min={MIN} max={MAX}>
 
 <style>
     label {
