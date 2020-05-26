@@ -7,3 +7,4 @@
 <input type="text" bind:value={myColor}>
 
 <Colorwell bind:colorGlob={myColor} />
+<Colorwell />
