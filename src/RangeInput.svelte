@@ -9,7 +9,7 @@
         <strong>{label}</strong>
     {/if}
     {value}</label>
-<input id="range" type="range" bind:value={value} max={MAX}>
+<input on:change id="range" type="range" bind:value={value} max={MAX}>
 
 <style>
     label {
