@@ -30,7 +30,12 @@
 
     function updateColorHSV() {
         let colorHSV = chrm(color).hsv()
-        hue = Math.floor(colorHSV[0])
+
+        if (hue === NaN) {
+            hue = hue
+        } else {
+            hue = Math.floor(colorHSV[0])   
+        }
         saturation = Math.floor(colorHSV[1]*100)
         value = Math.floor(colorHSV[2]*100)
     }
@@ -50,7 +55,6 @@
     });
     
     beforeUpdate( async () => {
-    
         if (colorGlob !== color) {
             updateColorToGlob()
         } 
@@ -70,25 +74,25 @@
 </div>
 
 {#if !showModal}
-<div class={`colorwell-modal ${showModal ? 'hidden': ''}`} >
+    <div class={`colorwell-modal ${showModal ? 'hidden': ''}`} >
 
-    <div 
+        <div 
+            
+            class="colorPal" 
+            style={`background: ${color}`}
+            on:click="{e => {
+                updateColor()
+                showModal = true
+            }}"
+        >
+            <strong class:black={colorContrast} >{color}</strong>
+        </div>
+
+        <RangeInput on:change={updateColor} bind:value={hue} label="Hue" MAX={360}/>
+        <RangeInput on:change={updateColor} bind:value={saturation} label="Saturation" MAX={100}/>
+        <RangeInput on:change={updateColor} bind:value={value} label="Value" MAX={100}/>
         
-        class="colorPal" 
-        style={`background: ${color}`}
-        on:click="{e => {
-            updateColor()
-            showModal = true
-        }}"
-    >
-        <strong class:black={colorContrast} >{color}</strong>
     </div>
-
-    <RangeInput on:change={updateColor} bind:value={hue} label="Hue" MAX={360}/>
-    <RangeInput on:change={updateColor} bind:value={saturation} label="Saturation" MAX={100}/>
-    <RangeInput on:change={updateColor} bind:value={value} label="Value" MAX={100}/>
-    
-</div>
 {/if}
 
 
@@ -133,7 +137,7 @@
         align-items: center;
         border-radius: 8px;
         font-size: 1.25em; 
-        transition: all 300ms ease-in;
+        transition: all 200ms ease-out;
         cursor: pointer;
     }
 
