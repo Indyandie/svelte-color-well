@@ -8,14 +8,14 @@
     import Icon from 'svelte-awesome';
     import { tint } from 'svelte-awesome/icons';
 
-    export let colorGlob = color
+    export let colorGlob = chrm.random()
     $: showModal = true
 
     $: hue = 0
     $: saturation = 100
     $: value = 10
 
-    $: color = colorGlob
+    $: color = chrm.random()
     
     $: colorContrast = chrm.contrast('white', color) < 4.5 
 
