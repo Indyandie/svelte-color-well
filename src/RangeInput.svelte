@@ -1,16 +1,49 @@
 <script>
+    import { onMount, afterUpdate } from 'svelte';
     export let value = 30
     export let MAX = 100
     export let MIN = 0
     export let label = null
+    export let hue = false
+    export let sat = false
+    export let light = false
+
+    let lightInput
+    export let hueColor
+
+    function updateGrad() {
+    
+        let root = document.documentElement
+        let gradient = `left, black, ${hueColor[0]}`
+        let gradientTwo = `left, white, ${hueColor[1]}`
+        root.style.setProperty('--light-gradient', gradient)
+        root.style.setProperty('--sat-gradient', gradientTwo)
+        
+    }
+
+    onMount(async () => {
+            updateGrad()
+    });
+
+    afterUpdate( async () => {
+        updateGrad()
+    })
+
 </script>
 
 <label for="range">
     {#if label}
         <strong>{label}</strong>
     {/if}
-    {value}</label>
-<input on:change id="range" type="range" bind:value={value} min={MIN} max={MAX}>
+    <code>{value}</code>
+</label>
+<input 
+    class:hue 
+    class:light 
+    class:sat 
+    on:change 
+    bind:this={lightInput}
+    id="range" type="range" bind:value={value} min={MIN} max={MAX}>
 
 <style>
     label {
@@ -19,9 +52,159 @@
         font-size: 1.5em;
         display: flex;
         justify-content: space-between;
+        align-items: center;
     }
 
     input {
         margin-bottom: 24px;
     }
+
+    :root {
+
+        /* --light-gradient: 
+        left,
+        black,
+        white; */
+
+        --hue-gradient: 
+            left,
+            hsl(0, 100%, 50%),
+            hsl(45, 100%, 50%),
+            hsl(90, 100%, 50%),
+            hsl(135, 100%, 50%),
+            hsl(180, 100%, 50%),
+            hsl(225, 100%, 50%),
+            hsl(270, 100%, 50%),
+            hsl(315, 100%, 50%),
+            hsl(360, 100%, 50%);
+
+        --track-bg-color: #333;
+        --track-bg-color-focus: cornflowerblue;
+        --track-width: 100%;
+        --track-width: 100%;
+        --track-height: 12px;
+        --track-cursor: pointer;
+        --track-border-radius: 8px;
+
+        --thumb-border: 12px solid white;
+        --thumb-shadow: 0 0 1px 2px  rgba(51, 51, 51, .25);
+        --thumb-border-radius: 100%;
+        --thumb-size: 32px;
+        --thumb-bg: #fff;
+        --thumb-align: -12px;
+    }
+/* ++++++++++++++++++++++ */
+/* Webkit */
+/* ++++++++++++++++++++++ */
+
+    input[type=range] {
+        -webkit-appearance: none;
+        margin: 16px 0 24px;
+        width: 100%;
+    }
+
+    input[type=range]:focus {
+        outline: none;
+    }
+
+    input[type=range]::-webkit-slider-runnable-track {
+        width: var(--track-width);
+        height: var(--track-height);
+        cursor: var(--track-cursor);
+        background: var(--track-bg-color);
+        border-radius: var(--track-border-radius);
+        /* box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; */
+        /* animate: 0.2s; */
+        /* border: 0.2px solid #010101; */
+    }
+
+
+    input[type=range].hue::-webkit-slider-runnable-track {
+        background-image: -webkit-linear-gradient(var(--hue-gradient));
+    }
+
+    input[type=range].light::-webkit-slider-runnable-track {
+        background-image: -webkit-linear-gradient(var(--light-gradient));
+    }
+
+    input[type=range].sat::-webkit-slider-runnable-track {
+        background-image: -webkit-linear-gradient(var(--sat-gradient));
+    }
+
+    input[type=range]::-webkit-slider-thumb {
+        box-shadow: var(--thumb-shadow);
+        border: var(--thumb-border);
+        height: var(--thumb-size);
+        width: var(--thumb-size);
+        border-radius: var(--thumb-border-radius);
+        /* background: var(--thumb-bg); */
+        cursor: var(--track-cursor);
+        margin-top: var(--thumb-align);
+        -webkit-appearance: none;
+    }
+
+    input[type=range]:focus::-webkit-slider-runnable-track {
+        /* background: var(--track-bg-color-focus); */
+    }
+
+/* ++++++++++++++++++++++ */
+/* Firefox */
+/* ++++++++++++++++++++++ */
+
+    input[type=range]::-moz-range-track {
+        width: var(--track-width);
+        height: var(--track-height);
+        cursor: var(--track-cursor);
+        background: var(--track-bg-color);
+        border-radius: var(--track-border-radius);
+    }
+
+    input[type=range]::-moz-range-thumb {
+        border: var(--thumb-border);
+        height: var(--thumb-size);
+        width: var(--thumb-size);
+        border-radius: var(--thumb-border-radius);
+        background: var(--thumb-bg);
+        cursor: var(--track-cursor);
+    }
+
+/* ++++++++++++++++++++++ */
+/* Windows */
+/* ++++++++++++++++++++++ */
+
+    input[type=range]::-ms-track {
+        width: 100%;
+        height: 8.4px;
+        cursor: pointer;
+        animate: 0.2s;
+        background: transparent;
+        border-color: transparent;
+        border-width: 16px 0;
+        color: transparent;
+    }
+    input[type=range]::-ms-fill-lower {
+        background: var(--thumb-bg);
+        border: var(--thumb-border);
+        border-radius: var(--thumb-border-radius);
+    }
+    input[type=range]::-ms-fill-upper {
+        background: var(--thumb-bg);
+        border: var(--thumb-border);
+        border-radius: var(--thumb-border-radius);
+    }
+    input[type=range]::-ms-thumb {
+        border: var(--thumb-border);
+        height: var(--thumb-size);
+        width: var(--thumb-size);
+        border-radius: var(--thumb-border-radius);
+        background: var(--thumb-bg);
+        cursor: var(--track-cursor);
+    }
+    input[type=range]:focus::-ms-fill-lower {
+        background: var(--thumb-bg);
+    }
+    input[type=range]:focus::-ms-fill-upper {
+        background: var(--thumb-bg);
+    }
+
 </style>
