@@ -14,6 +14,9 @@
     $: hue = 0
     $: saturation = 100
     $: value = 10
+    $: valueRange = chrm.hsv(hue, (saturation * 0.01), (1)).hex().toUpperCase()
+    $: satRange = chrm.hsv(hue, (1), (value * 0.01)).hex().toUpperCase()
+    $: rangeArr = [ valueRange, satRange ]
 
     $: color = chrm.random()
     
@@ -88,9 +91,9 @@
             <strong class:black={colorContrast} >{color}</strong>
         </div>
 
-        <RangeInput on:change={updateColor} bind:value={hue} label="Hue" MAX={360}/>
-        <RangeInput on:change={updateColor} bind:value={saturation} label="Saturation" MAX={100}/>
-        <RangeInput on:change={updateColor} bind:value={value} label="Value" MAX={100}/>
+        <RangeInput bind:hueColor={rangeArr} hue={true} on:change={updateColor} bind:value={hue} label="Hue" MAX={360}/>
+        <RangeInput bind:hueColor={rangeArr} sat={true} on:change={updateColor} bind:value={saturation} label="Saturation" MAX={100}/>
+        <RangeInput bind:hueColor={rangeArr} light={true} on:change={updateColor} bind:value={value} label="Value" MAX={100}/>
         
     </div>
 {/if}
