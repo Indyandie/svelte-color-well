@@ -46,7 +46,8 @@
     class:sat 
     on:change 
     bind:this={lightInput}
-    id="range" type="range" bind:value={value} min={MIN} max={MAX}>
+    id="range" type="range" bind:value={value} min={MIN} max={MAX}
+>
 
 <style>
     label {
