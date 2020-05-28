@@ -106,7 +106,7 @@
 
         <RangeInput bind:hueColor={rangeArr} hue={true} on:change={updateColor} bind:value={hue} label="Hue" MAX={360}/>
         <RangeInput bind:hueColor={rangeArr} sat={true} on:change={updateColor} bind:value={saturation} label="Saturation" MAX={100}/>
-        <RangeInput bind:hueColor={rangeArr} light={true} on:change={updateColor} bind:value={light} label="light" MAX={100}/>
+        <RangeInput bind:hueColor={rangeArr} light={true} on:change={updateColor} bind:value={light} label="Lightness" MAX={100}/>
     </div>
     
     <div id="colorwell-overlay" ></div>
@@ -183,6 +183,26 @@
 
     .hidden {
         display: none;
+    }
+
+    /* Small Devices, Phones */ 
+    @media only screen and (max-width : 620px) {
+
+        .colorwell-modal {
+            position: fixed;
+            left: 0;
+            top: 24px;
+            width: 100vw;
+            height: auto;
+            box-sizing: border-box;
+            padding: 16px 16px;
+        }
+
+        #colorwell-overlay {
+            background: rgba(255, 255, 255, .8);
+            border: 2px solid rgb(170, 170, 170, .25); 
+        }
+
     }
 
 </style>
