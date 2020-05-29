@@ -26,7 +26,8 @@
 
     onMount(async () => {
             updateGrad()
-    });
+            console.log('alsdfj')
+    })
 
     afterUpdate( async () => {
         updateGrad()
@@ -44,7 +45,7 @@
     class:hue 
     class:light 
     class:sat 
-    on:change 
+    on:change
     bind:this={lightInput}
     id="range" type="range" bind:value={value} min={MIN} max={MAX}
 >
