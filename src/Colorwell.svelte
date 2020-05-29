@@ -89,6 +89,7 @@
 </div>
 
 {#if !showModal}
+<div class="colorwell-overlay" >
     <div class={`colorwell-modal ${showModal ? 'hidden': ''}`} >
 
         <div 
@@ -108,8 +109,7 @@
         <RangeInput bind:hueColor={rangeArr} sat={true} on:change={updateColor} bind:value={saturation} label="Saturation" MAX={100}/>
         <RangeInput bind:hueColor={rangeArr} light={true} on:change={updateColor} bind:value={light} label="Lightness" MAX={100}/>
     </div>
-    
-    <div id="colorwell-overlay" ></div>
+</div>
 {/if}
 
 
@@ -129,14 +129,19 @@
         cursor: pointer;
     }
 
-    #colorwell-overlay {
+    .colorwell-overlay {
         background: rgba(255, 255, 255, .5);
-        height: 100vh;
+        height: auto;
+        height: fit-content;
         width: 100vw;
         position: fixed;
         top: 0;
         left: 0;
         z-index: 8000;
+        display: flex;
+        justify-content: center;
+        overflow-y: scroll;
+        backdrop-filter: blur(5px);
     }
 
     .colorwell-modal {
@@ -149,9 +154,8 @@
         border: 2px solid rgb(170, 170, 170, .5); 
         background: white;
         z-index: 90000;
-        position: absolute;
-        top: 0;
-        left: calc(50% - 160px);
+        flex-shrink: 0;
+        margin-bottom: auto;
     }
 
     .colorPal {
@@ -189,18 +193,32 @@
     @media only screen and (max-width : 620px) {
 
         .colorwell-modal {
-            position: fixed;
-            left: 0;
-            top: 24px;
-            width: 100vw;
+            width: 100%;
             height: auto;
             box-sizing: border-box;
-            padding: 16px 16px;
+            padding: 0 12px 24px;
+            border-radius: 0;
+            margin-bottom: 0;
+            margin-top: auto;
+            border: 0;
         }
 
-        #colorwell-overlay {
-            background: rgba(255, 255, 255, .8);
+        .colorwell-overlay {
+            background: rgba(255, 255, 255, .7);
             border: 2px solid rgb(170, 170, 170, .25); 
+            border: 0;
+            position: absolute;
+            height: 100vh;
+        }
+
+        .colorPal {
+            margin-bottom: 16px;
+            width: 100vw;
+            position: sticky;
+            top: 0;
+            margin-left: -12px;
+            border-radius: 0;
+            padding: 24px 0;
         }
 
     }
