@@ -114,7 +114,6 @@
         border-radius: var(--track-border-radius);
         /* box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; */
         box-shadow: var(--thumb-shadow);
-        animate: 0.2s;
         /* border: 0.2px solid #010101; */
     }
 
@@ -254,7 +253,6 @@
         width: 100%;
         height: 8.4px;
         cursor: pointer;
-        animate: 0.2s;
         background: transparent;
         border-color: transparent;
         border-width: 16px 0;
