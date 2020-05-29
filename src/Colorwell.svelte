@@ -1,7 +1,7 @@
 <script>
 
     import chrm from 'chroma-js'
-    import Colormodal from './Colormodal'
+    import Colormodal from './Colormodal.svelte'
 
     // Font Awesome
     import Icon from 'svelte-awesome';
