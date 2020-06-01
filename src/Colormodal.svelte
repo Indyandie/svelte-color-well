@@ -155,6 +155,8 @@
             border: 2px solid rgb(170, 170, 170, .25); 
             border: 0;
             position: absolute;
+            position: fixed;
+            bottom: 0;
             height: 100vh;
         }
 
