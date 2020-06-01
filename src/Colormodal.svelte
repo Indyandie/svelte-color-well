@@ -117,7 +117,7 @@
         justify-content: center;
         align-items: center;
         border-radius: 8px;
-        font-size: 1.5em; 
+        font-size: 1.75em; 
         transition: all 200ms ease-out;
         cursor: pointer;
         text-transform: uppercase;
