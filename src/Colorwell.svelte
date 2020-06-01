@@ -12,16 +12,14 @@
     $: hslBox = {
         hue:            Math.floor(chrm(colorGlob).hsl()[0]),
         saturation:     Math.floor(chrm(colorGlob).hsl()[1] * 100),   
-        light:          Math.floor(chrm(colorGlob).hsl()[2] * 100)
-
+        light:          Math.floor(chrm(colorGlob).hsl()[2] * 100),
+        contrast:       colorContrast
     }
     
 
 
     $: showModal = true
-    
-    $: colorContrast = true 
-    // $: colorContrast = chrm.contrast('white', colorGlob) < 4.5 || true 
+    $: colorContrast = chrm.contrast('white', colorGlob) < 4.5 
 
 </script>
 

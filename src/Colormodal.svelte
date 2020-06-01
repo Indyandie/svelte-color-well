@@ -63,7 +63,7 @@
             }}
         >
             <strong class:black={colorContrast} >
-                <code>{color}</code>
+                <code>{color.toUpperCase()}</code>
             </strong>
         </div>
 
