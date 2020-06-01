@@ -15,11 +15,9 @@
         light:          Math.floor(chrm(colorGlob).hsl()[2] * 100),
         contrast:       colorContrast
     }
-    
-
 
     $: showModal = true
-    $: colorContrast = chrm.contrast('white', colorGlob) < 4.5 
+    $: colorContrast = chrm.contrast('white', colorGlob) < 6 
 
 </script>
 
