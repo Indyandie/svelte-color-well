@@ -1,14 +1,11 @@
 # Svelte Colorwell
-
 A color picker.
 
 
 ## Install it
-
 ```shell
 npm i svelte-color-well
 ```
-
 
 ## Using it
 
@@ -29,9 +26,7 @@ npm i svelte-color-well
 
 <!-- see it in action -->
 <h1>{myColor}</h1>
-
 ```
-
 
 ## TODO
 
