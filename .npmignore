@@ -1,3 +1,7 @@
 distest
 test
 .gitignore
+.cache
+*.config.js
+package-lock.json
+node_modules
