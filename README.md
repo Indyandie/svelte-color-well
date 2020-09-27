@@ -8,7 +8,6 @@ npm i svelte-color-well
 ```
 
 ## Using it
-
 ```html
 <script>
     // import it to your component/app
