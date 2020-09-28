@@ -1,5 +1,4 @@
 <script>
-
     import chrm from 'chroma-js'
     import Colormodal from './Colormodal.svelte'
 
@@ -7,7 +6,7 @@
     import Icon from 'svelte-awesome';
     import { eyedropper } from 'svelte-awesome/icons'
 
-    export let colorGlob = colorGlob || chrm.random()
+    export let colorGlob = chrm.random()
 
     $: hslBox = {
         hue:            Math.floor(chrm(colorGlob).hsl()[0]),
@@ -40,10 +39,7 @@
     />
 {/if}
 
-
-
 <style>
-
     .colorwell-selector {
         width: 48px;
         height: 48px;
@@ -60,5 +56,4 @@
     .black {
         color: rgb(0, 0, 0, .8);
     }
-
 </style>
