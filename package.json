@@ -1,31 +1,22 @@
 {
   "name": "svelte-color-well",
-  "svelte": "src/index.js",
-  "module": "dist/index.mjs",
+  "source": "src/index.js",
+  "module": "dist/module/index.js",
   "main": "dist/index.js",
   "scripts": {
-    "build": "rollup -c",
     "prepublishOnly": "npm run build",
-    "test": "parcel test/index.html -d distest/"
+    "build": "rm -rf dist && parcel build src/index.js",
+    "test": "parcel test/index.html"
   },
   "devDependencies": {
-    "@babel/polyfill": "^7.10.4",
-    "@rollup/plugin-commonjs": "^15.0.0",
-    "@rollup/plugin-node-resolve": "^9.0.0",
-    "parcel-bundler": "^1.12.4",
-    "parcel-plugin-svelte": "^4.0.6",
-    "rollup": "^2.26.8",
-    "rollup-plugin-svelte": "^6.0.0",
-    "svelte": "^3.24.1"
+    "parcel": "^2.0.0-beta.1",
+    "parcel-transformer-svelte": "^1.0.5",
+    "svelte": "^3.28.0"
   },
   "keywords": [
     "svelte",
     "color",
     "input"
-  ],
-  "files": [
-    "src",
-    "dist"
   ],
   "description": "Pick a color and get on with it. ",
   "version": "1.1.6",
