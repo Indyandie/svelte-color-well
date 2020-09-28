@@ -2,7 +2,7 @@
     import Colorwell from '../src/Colorwell'
     import chrm from 'chroma-js'
 
-    $: myColor = '#FF0000'
+    let myColor = '#FF0000'
 
     function randBaseColor() {
         myColor = chrm.random()
