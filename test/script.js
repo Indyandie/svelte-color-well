@@ -1,7 +1,15 @@
-import '@babel/polyfill';
-import App from './App.svelte';
+import App from './App.svelte'
 
-const app = new App({
-    target: document.body,
-    data: {}
-});
+// const app = new App({
+//     target: document.body,
+//     data: {}
+// })
+
+if (module.hot) {
+    module.hot.accept()
+}
+
+// HMR is not working this is work around
+const target = document.body
+target.innerHTML = ''
+new App({ target })
