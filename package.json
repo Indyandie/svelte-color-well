@@ -11,7 +11,13 @@
   },
   "devDependencies": {
     "parcel": "^2.0.0-beta.1",
-    "parcel-transformer-svelte": "^1.0.5",
+    "parcel-transformer-svelte": "^1.0.5"
+  },
+  "dependencies": {
+    "chroma-js": "^2.1.0",
+    "svelte-awesome": "^2.3.0"
+  },
+  "peerDependencies": {
     "svelte": "^3.28.0"
   },
   "keywords": [
@@ -20,10 +26,6 @@
     "input"
   ],
   "description": "Pick a color and get on with it. ",
-  "dependencies": {
-    "chroma-js": "^2.1.0",
-    "svelte-awesome": "^2.3.0"
-  },
   "author": "Andy Contreras",
   "repository": {
     "type": "git",
