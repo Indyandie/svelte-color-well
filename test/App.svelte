@@ -1,19 +1,18 @@
 <script>
-    import Colorwell from '../src/Colorwell'
-    import chrm from 'chroma-js'
+  import Colorwell from '../src/Colorwell'
+  import chrm from 'chroma-js'
 
-    let myColor = '#FF0000'
+  let myColor = '#FF0000'
 
-    function randBaseColor() {
-        myColor = chrm.random()
-    }
+  function randBaseColor() {
+      myColor = chrm.random()
+  }
 
-    document.addEventListener('keydown', event => {
-        if (event.code === 'Space') {
-            randBaseColor()
-        }
-    })
-
+  document.addEventListener('keydown', event => {
+      if (event.code === 'Space') {
+          randBaseColor()
+      }
+  })
 </script>
 
 <h1>{myColor}</h1>
