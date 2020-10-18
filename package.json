@@ -10,8 +10,8 @@
     "test": "parcel test/index.html"
   },
   "devDependencies": {
-    "parcel": "^2.0.0-beta.1",
-    "parcel-transformer-svelte": "^1.0.5"
+    "parcel": "^2.0.0-nightly.425",
+    "parcel-transformer-svelte": "^1.0.6"
   },
   "dependencies": {
     "chroma-js": "^2.1.0",
