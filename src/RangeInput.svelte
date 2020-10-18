@@ -7,15 +7,16 @@
     export let hue = false
     export let sat = false
     export let light = false
-
-    let lightInput
     export let hueColor
 
+    let lightInput
+
     function updateGrad() {
-    
         let root = document.documentElement
+
         let lightGrad = `left, black, ${hueColor.ltCen}, white`
         root.style.setProperty('--light-gradient', lightGrad)
+
         let satGradient = `left, ${hueColor.stRang[0]}, ${hueColor.stRang[1]}`
         root.style.setProperty('--sat-gradient', satGradient)
 
@@ -47,7 +48,11 @@
     class:sat 
     on:change
     bind:this={lightInput}
-    id="range" type="range" bind:value={value} min={MIN} max={MAX}
+    id="range" 
+    type="range"
+    bind:value={value}
+    min={MIN}
+    max={MAX}
 >
 
 <style>
@@ -65,7 +70,6 @@
     }
 
     :root {
-
         --hue-gradient: 
             left,
             hsl(0, 100%, 50%),

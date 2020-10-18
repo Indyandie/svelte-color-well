@@ -4,7 +4,7 @@
 
   let myColor = '#FF0000'
 
-  function randBaseColor() {
+  function randBaseColor () {
       myColor = chrm.random()
   }
 
