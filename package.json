@@ -7,7 +7,7 @@
   "scripts": {
     "prepublishOnly": "npm run build",
     "build": "rm -rf dist && parcel build src/index.js --no-source-maps",
-    "test": "parcel test/index.html"
+    "test": "rm -rf test_dist && parcel test/index.html --no-cache --dist-dir test_dist"
   },
   "devDependencies": {
     "parcel": "^2.0.0-nightly.425",
