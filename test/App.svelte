@@ -1,5 +1,8 @@
 <script>
+  import Color from '../src/ColorWell'
   import Range from '../src/components/RangeInput'
+  import Well from '../src/components/Well'
+  import Modal from '../src/components/Modal'
 
   const hueGradient = `left,
     hsl(0, 100%, 50%),
@@ -18,21 +21,19 @@
 
 <h1>Testing {defaultVal}</h1>
 
-<Range/>
-<Range 
-  colorSel={'var(--track-bg-color)'}
-  extraStyles="--thumb-sel-focus: var(--track-bg-color-focus);"
-/>
-<Range 
-  colorSel={'var(--track-bg-color)'}
-  extraStyles="--thumb-sel-focus: white;"
-/>
-<Range 
-  extraStyles="--thumb-sel-focus: var(--track-bg-color-focus);"
-/>
-<Range 
-  max={360}
-  bind:value={defaultVal}
-  bgGrad={hueGradient}
-  colorSel={currCol}
-/>
+<Modal>
+  <Well/>
+  <Range/>
+  <Range/>
+  <Range/>
+</Modal>
+
+
+<style>
+  :global(
+    .modal input[type='range'],
+    .modal label
+  ) {
+    width: 100%;
+  }
+</style>
