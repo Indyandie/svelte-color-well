@@ -6,3 +6,4 @@ package-lock.json
 /.cache/
 .parcel-cache
 test_dist
+settings.json
