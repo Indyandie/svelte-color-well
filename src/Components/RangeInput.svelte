@@ -17,7 +17,6 @@
 
 <input
   type="range"
-  name="range"
   {max}
   {min}
   {id}
