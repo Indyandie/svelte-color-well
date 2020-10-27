@@ -8,7 +8,6 @@
     export let showModal
     export let colorContrast
     export let hslBox
-    
 
     $: lightRangeCenter     = chrm.hsl(hslBox.hue, (hslBox.saturation * 0.01), (.5))
     $: satRangeStart        = chrm.hsl(hslBox.hue, (0), (hslBox.light * 0.01))

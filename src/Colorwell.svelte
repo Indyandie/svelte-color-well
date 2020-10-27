@@ -17,7 +17,6 @@
 
     $: showModal = true
     $: colorContrast = chrm.contrast('white', colorGlob) < 6 
-
 </script>
 
 <div 
