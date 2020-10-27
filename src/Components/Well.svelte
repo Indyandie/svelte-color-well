@@ -13,3 +13,9 @@
     <code>{ color.toUpperCase() }</code>
   </strong>
 </div>
+
+<style>
+  .black {
+    color: black;
+  }
+</style>
