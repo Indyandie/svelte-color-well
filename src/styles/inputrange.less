@@ -4,6 +4,8 @@
   transition: all 300ms ease-in-out;
 }
 
+@smooth: all 300ms ease-in-out;
+
 :root {
   --track-bg-color: #7CCDF0;
   --track-bg-color-focus: #2DB7F2;
@@ -13,24 +15,12 @@
   --track-cursor: pointer;
   --track-border-radius: 12px;
 
-  --thumb-border: 10px solid white;
+  --thumb-border: 0 solid white;
   --thumb-shadow: 0 0 1px 2px rgba(51, 51, 51, 0.25);
   --thumb-border-radius: 100%;
   --thumb-size: 44px;
   --thumb-bg: white;
   --thumb-align: -12px;
-
-  --bg-gradient: left,
-    hsl(0, 100%, 50%),
-    hsl(45, 100%, 50%),
-    hsl(90, 100%, 50%),
-    hsl(135, 100%, 50%),
-    hsl(180, 100%, 50%),
-    hsl(225, 100%, 50%),
-    hsl(270, 100%, 50%),
-    hsl(315, 100%, 50%),
-    hsl(360, 100%, 50%);
-  // --thumb-sel: white;
 }
 
 label {
@@ -65,101 +55,102 @@ label {
     -webkit-appearance: none;
     margin: 8px 0 24px;
 
+    /* ## Webkit ########### */
+
+    // Track 
+    &::-webkit-slider-runnable-track {
+      .track();
+      -webkit-appearance: none;
+    }
+
+    // Thumb
+    &::-webkit-slider-thumb {
+      .thumb();
+      -webkit-appearance: none;
+    }
+
+    /* ## Firefox ############# */
+
+    // Track
+    &::-moz-range-track {
+      .track();
+    }
+
+    // Thumb
+    &::-moz-range-thumb {
+      .thumb();
+    }
+
     &:focus {
       outline: none;
+
+      /* ## Webkit ########### */
+
+      // Track
+      &::-webkit-slider-runnable-track {
+        .track-focus();
+      }
+
+      // Thumb
+      &::-webkit-slider-thumb {
+        .thumb-focus();
+      }
+
+      /* ## Firefox ############# */
+
+      // Track
+      &::-moz-range-track {
+        .track-focus();
+      }
+
+      // Thumb
+      &::-moz-range-thumb {
+        .thumb-focus();
+      }
     }
   }
 }
 
-/* ++++++++++++++++++++++ 
-  Webkit 
-  ++++++++++++++++++++++ */
+// Track
 
-input[type='range']::-webkit-slider-runnable-track {
+.track {
   .smooth-animation();
   width: var(--track-width);
   height: var(--track-height);
   cursor: var(--track-cursor);
   background: var(--track-bg-color);
+  background-image: -webkit-linear-gradient(var(--bg-gradient));
   border-radius: var(--track-border-radius);
   box-shadow: var(--thumb-shadow);
 }
 
-input[type='range']:focus::-webkit-slider-runnable-track {
+.track-focus {
   background: var(--track-bg-color-focus);
+  background-image: -webkit-linear-gradient(var(--bg-gradient));
 }
 
-input[type='range']::-webkit-slider-thumb {
-  .smooth-animation();
-  transition: background 100ms ease-out;
+.thumb {
+  transition: background 100ms ease, 
+              border-width 200ms ease;
   box-shadow: var(--thumb-shadow);
   border: var(--thumb-border);
   height: var(--thumb-size);
   width: var(--thumb-size);
   border-radius: var(--thumb-border-radius);
-  background: var(--thumb-bg);
-  background: white;
+  background: var(--thumb-sel, var(--thumb-bg, white));
   cursor: var(--track-cursor);
   margin-top: var(--thumb-align);
-  -webkit-appearance: none;
+  box-sizing: border-box;
 }
 
-/* Gradient */
-
-input[type=range]::-webkit-slider-runnable-track {
-  background-image: -webkit-linear-gradient(var(--bg-gradient));
-}
-
-input[type=range]:focus::-webkit-slider-runnable-track {
-  background-image: -webkit-linear-gradient(var(--bg-gradient));
-}
-
-// selection color 
-input[type=range]::-webkit-slider-thumb {
-  background: var(--thumb-sel, white);
-}
-
-input[type=range]:focus::-webkit-slider-thumb {
+.thumb-focus {
   background: var(--thumb-sel-focus, var(--thumb-sel, white));
+  border: 8px solid white;
 }
 
 /* ++++++++++++++++++++++ */
-/* Firefox */
+/* Windows */
 /* ++++++++++++++++++++++ */
-
-// input[type='range']::-moz-range-track {
-//   width: var(--track-width);
-//   height: var(--track-height);
-//   cursor: var(--track-cursor);
-//   background: var(--track-bg-color);
-//   border-radius: var(--track-border-radius);
-//   box-shadow: var(--thumb-shadow);
-// }
-
-// input[type='range']:focus::-moz-range-track {
-//   background: var(--track-bg-color-focus);
-// }
-
-// input[type='range']::-moz-range-thumb {
-//   box-shadow: var(--thumb-shadow);
-//   border: var(--thumb-border);
-//   /* height: var(--thumb-size);
-//         width: var(--thumb-size); */
-//   border-radius: var(--thumb-border-radius);
-//   background: var(--thumb-bg);
-//   cursor: var(--track-cursor);
-//   margin-top: var(--thumb-align);
-// }
-
-// /* Hue Gradient */
-
-// /* Lightness Gradient */
-
-// /* Saturation Gradient */
-
-// /* ++++++++++++++++++++++ */
-// /* Windows */
-// /* ++++++++++++++++++++++ */
 
 // input[type='range']::-ms-track {
 //   width: 100%;
