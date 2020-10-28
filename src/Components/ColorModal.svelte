@@ -6,6 +6,8 @@
   import Well from './Well'
   import Modal from './Modal'
 
+  export let showModal = true
+
   export let type = 'hsl'
   export let color = '#ff0000'
 
@@ -86,7 +88,8 @@
   }
 </script>
 
-<Modal>
+{#if showModal}
+<Modal on:close={() => showModal = false } >
   <Well { color } { colorContrast } />
 
   {#if type === 'hsl' }
@@ -150,6 +153,7 @@
     <option value="rgb" >RGB</option>
   </select>
 </Modal>
+{/if}
 
 <style>
   :global(
