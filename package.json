@@ -11,13 +11,13 @@
   },
   "devDependencies": {
     "less": "^3.12.2",
-    "parcel": "^2.0.0-nightly.425",
+    "parcel": "^2.0.0-nightly.433",
     "parcel-transformer-svelte": "^1.0.6"
   },
   "dependencies": {
     "chroma-js": "^2.1.0",
     "svelte-awesome": "^2.3.0",
-    "svelte-preprocess": "^4.5.1"
+    "svelte-preprocess": "^4.5.2"
   },
   "peerDependencies": {
     "svelte": "^3.28.0"
