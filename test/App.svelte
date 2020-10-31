@@ -1,14 +1,9 @@
 <script>
-  import Color from '../src/components/ColorModal'
-  let myColor = 'blue'
-  
-  let closeModal = false
+  import Color from '../src/components/ColorPicker.svelte'
+  // import Well from '../src/Colorwell.svelte'
 </script>
 
-<button on:click={() => closeModal = true } >showModal</button>
+<Color/>
 
-<Color
-  bind:color={myColor} 
-  type="rgb" 
-  bind:showModal={closeModal}
-/>
+<!-- <Well/> -->
+
