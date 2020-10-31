@@ -1,1 +1,1 @@
-export { default as default } from './Colorwell.svelte';
+export { default as default } from './components/ColorPicker.svelte';
