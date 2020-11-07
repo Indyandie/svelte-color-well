@@ -7,9 +7,11 @@
 	const closeModal = () => dispatch('close')
 </script>
 
-<div class="modal" transition:fly >
-  <slot>Modal</slot>
-</div>
+<section>
+  <div class="modal" transition:fly >
+    <slot>Modal</slot>
+  </div>
+</section>
 
 <div 
   class="modal-background" 
@@ -18,17 +20,27 @@
 />
 
 <style>
+  section {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    left: 0;
+    top: 0;
+    justify-content: center;
+  }
+  
   .modal {
     z-index: 2000;
-    position: relative;
+    margin: auto;
   }
 
   .modal-background {
     background: white;
     opacity: .6;
-    height: 100vh;
-    width: 100vw;
-    position: absolute;
+    height: 100%;
+    width: 100%;
+    position: fixed;
     left: 0;
     top: 0;
     z-index: 1999;
