@@ -12,18 +12,18 @@
   export let color = '#ff0000'
 
   $: colorContrast = chrm.contrast('white', color) < 2.3
-  
+
   // HSL values
   let hslVal = chrm(color).hsl()
-  let hueValue = hslVal[0]
-  let satValue = hslVal[1]  * 100
-  let lightValue = hslVal[2] * 100
+  let hueValue = Math.floor(hslVal[0])
+  let satValue = Math.floor(hslVal[1]  * 100)
+  let lightValue = Math.floor(hslVal[2] * 100)
 
   // RGB values
   let rgbVal = chrm(color).rgb()
-  let redValue = rgbVal[0]
-  let greenValue = rgbVal[1]
-  let blueValue = rgbVal[2]
+  let redValue = Math.floor(rgbVal[0])
+  let greenValue = Math.floor(rgbVal[1])
+  let blueValue = Math.floor(rgbVal[2])
 
   // HSL gradients
   $: hueGradient = () => {
@@ -82,9 +82,9 @@
     satValue = Math.floor(hslVal[1]  * 100)
     lightValue = Math.floor(hslVal[2] * 100)
 
-    redValue = rgbVal[0]
-    greenValue = rgbVal[1]
-    blueValue = rgbVal[2]
+    redValue = Math.floor(rgbVal[0])
+    greenValue = Math.floor(rgbVal[1])
+    blueValue = Math.floor(rgbVal[2])
   }
 </script>
 
@@ -148,7 +148,8 @@
     None
   {/if}
 
-  <select bind:value={type} on:change={updateAllColors} >
+  <!-- svelte-ignore a11y-no-onchange -->
+  <select bind:value={type}  on:change={updateAllColors} >
     <option value="hsl" >HSL</option>
     <option value="rgb" >RGB</option>
   </select>
