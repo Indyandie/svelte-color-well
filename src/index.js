@@ -1,1 +1,1 @@
-export { default } from './components/ColorPicker.svelte'
+export { default as default } from './components/ColorPicker.svelte'
