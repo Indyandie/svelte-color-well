@@ -1,11 +1,12 @@
 <script>
-  import '../styles/color-picker.less'
+  // import '../styles/color-picker.less'
+
   // Font Awesome
   import Icon from 'svelte-awesome';
   import { eyedropper } from 'svelte-awesome/icons'
   import { contrast, random } from 'chroma-js'
 
-  import Modal from './ColorModal'
+  import Modal from './ColorModal.svelte'
   
   export let color = random().hex()
   export let type = 'hsl'
@@ -28,7 +29,9 @@
   bind:type={type}
 />
 
-<style>
+<style lang="less" >
+  @import '../styles/color-picker.less';
+
   .colorwell-selector {
       width: 48px;
       height: 48px;

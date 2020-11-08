@@ -1,5 +1,5 @@
 <script>
-  import '../styles/inputrange.less'
+  // import '../styles/inputrange.less'
 
   export let value = 0
   export let id = 'range'
@@ -26,3 +26,7 @@
   bind:value
   style="--thumb-sel: {colorSel}; --thumb-sel-focus: {colorSelFocus}; --bg-gradient: {bgGrad}; {extraStyles}"
 >
+
+<style lang="less" >
+  @import '../styles/inputrange.less';
+</style>

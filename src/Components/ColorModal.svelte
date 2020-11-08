@@ -1,10 +1,11 @@
 <script>
-  import '../styles/color-modal.less'
+  // import '../styles/color-modal.less'
+
   import chrm from 'chroma-js'
 
-  import Range from './RangeInput'
-  import Well from './Well'
-  import Modal from './Modal'
+  import Range from './RangeInput.svelte'
+  import Well from './Well.svelte'
+  import Modal from './Modal.svelte'
 
   export let showModal = true
 
@@ -156,7 +157,9 @@
 </Modal>
 {/if}
 
-<style>
+<style lang="less" >
+  @import '../styles/color-modal.less';
+  
   :global(
     .modal input[type='range'],
     .modal label

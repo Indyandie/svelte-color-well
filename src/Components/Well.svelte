@@ -1,5 +1,5 @@
 <script>
-  import '../styles/well.less'
+  // import '../styles/well.less'
 
   export let color = '#2DB7F2'
   export let colorContrast = false
@@ -14,7 +14,9 @@
   </strong>
 </div>
 
-<style>
+<style lang="less">
+  @import '../styles/well.less';
+
   .black {
     color: black;
   }

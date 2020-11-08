@@ -1,5 +1,5 @@
 <script>
-  import '../styles/modal.less'
+  // import '../styles/modal.less'
   import { createEventDispatcher } from 'svelte'
   import { fade, fly } from 'svelte/transition'
   
@@ -19,7 +19,9 @@
   transition:fade
 />
 
-<style>
+<style lang="less">
+  @import '../styles/modal.less';
+
   section {
     position: absolute;
     height: 100%;
