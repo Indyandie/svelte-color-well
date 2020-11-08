@@ -8,6 +8,7 @@
   import Modal from './ColorModal'
   
   export let myColor = random().hex()
+  export let type = 'hsl'
 
   $: pickerContrast = contrast('white', myColor) < 2.3
   let closeModal = false
@@ -24,6 +25,7 @@
 <Modal
   bind:color={myColor} 
   bind:showModal={closeModal}
+  bind:type={type}
 />
 
 <style>
