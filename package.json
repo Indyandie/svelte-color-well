@@ -9,12 +9,14 @@
     "build": "rm -rf dist && parcel build src/index.js --no-source-maps --no-cache",
     "test": "rm -rf test_dist && parcel test/index.html --no-cache --dist-dir test_dist"
   },
-  "devDependencies": {
+  "dependencies": {
     "chroma-js": "^2.1.0",
+    "svelte-awesome": "^2.3.0"
+  },
+  "devDependencies": {
     "less": "^3.12.2",
     "parcel": "^2.0.0-nightly.440",
     "parcel-transformer-svelte": "^1.0.8",
-    "svelte-awesome": "^2.3.0",
     "svelte-preprocess": "^4.5.2"
   },
   "peerDependencies": {
