@@ -12,24 +12,27 @@ npm i svelte-color-well
 
 ```html
 <script>
-    // import it to your component/app
-    import Colorwell from 'svelte-color-well'
+  // import it to your component/app
+  import ColorWell from 'svelte-color-well'
 
-    // your color var
-    let myColor
+  // your color
+  let yourColor
 </script>
 
 <!-- use the component initializes with a random color -->
-<Colorwell/>
+<ColorWell/>
 
-<!-- initialize color and use rbg -->
-<Colorwell
-  bind:myColor={myColor}
+<!-- initialize color and use rbg sliders -->
+<ColorWell
+  color='red'
   type='rgb'
 />
 
+<!-- bind color to variable -->
+<ColorWell bind:color={yourColor} />
+
 <!-- see it in action -->
-<h1>{myColor}</h1>
+<h1>{yourColor}</h1>
 ```
 
 ## TODO
