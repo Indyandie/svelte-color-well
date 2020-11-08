@@ -1,13 +1,15 @@
-# Svelte Colorwell
+# svelte color well
+
 A color picker.
 
-
 ## Install it
+
 ```shell
 npm i svelte-color-well
 ```
 
-## Using it
+## Use it
+
 ```html
 <script>
     // import it to your component/app
@@ -20,8 +22,11 @@ npm i svelte-color-well
 <!-- use the component initializes with a random color -->
 <Colorwell/>
 
-<!-- use the component and initialize color -->
-<Colorwell bind:colorGlob={myColor} />
+<!-- initialize color and use rbg -->
+<Colorwell
+  bind:myColor={myColor}
+  type='rgb'
+/>
 
 <!-- see it in action -->
 <h1>{myColor}</h1>
@@ -29,7 +34,4 @@ npm i svelte-color-well
 
 ## TODO
 
-* rgb
-* fancy input range
-* customizations
-* spit and polish
+- [ ] text input
