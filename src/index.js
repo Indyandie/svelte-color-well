@@ -1,2 +1,1 @@
-import color from './components/ColorPicker.svelte'
-export default color
+export { default as default } from './components/ColorPicker.svelte'

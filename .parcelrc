@@ -6,5 +6,6 @@
       "@parcel/transformer-babel",
       "@parcel/transformer-js"
     ]
-  }
+  },
+  "resolvers": ["@parcel/resolver-default"]
 }
