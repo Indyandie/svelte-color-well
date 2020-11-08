@@ -7,23 +7,23 @@
 
   import Modal from './ColorModal'
   
-  export let myColor = random().hex()
+  export let color = random().hex()
   export let type = 'hsl'
 
-  $: pickerContrast = contrast('white', myColor) < 2.3
+  $: pickerContrast = contrast('white', color) < 2.3
   let closeModal = false
 </script>
 
 <div 
   class={`colorwell-selector${pickerContrast ? ' black' : ''}`} 
-  style={`background: ${myColor}`} 
+  style={`background: ${color}`} 
   on:click={() => closeModal = true }
 >
   <Icon data={eyedropper} scale="1.5" />
 </div>
 
 <Modal
-  bind:color={myColor} 
+  bind:color={color} 
   bind:showModal={closeModal}
   bind:type={type}
 />
