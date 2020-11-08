@@ -1,6 +1,6 @@
 {
   "name": "svelte-color-well",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "source": "src/index.js",
   "module": "dist/module/index.js",
   "main": "dist/index.js",
