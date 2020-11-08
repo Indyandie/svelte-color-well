@@ -3,3 +3,8 @@
 </script>
 
 <Color/>
+
+<Color
+  myColor='red'
+  type='rgb'
+/>
